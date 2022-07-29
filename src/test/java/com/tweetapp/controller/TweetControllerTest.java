@@ -16,8 +16,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -41,13 +43,13 @@ class TweetControllerTest {
     void addNewUserTest(){
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         when(userImpl.registerUser(Mockito.any())).thenReturn(" Successfully Created");
         Assertions.assertEquals( 200,controller.addNewUser(userObj).getStatusCodeValue());
     }
@@ -55,22 +57,22 @@ class TweetControllerTest {
     @Test
     void resetPasswordTest(){
         UserProfile userObj = new UserProfile();
-        userObj.setPassword("army");
+        userObj.setPassword("testPwd");
         when(userImpl.toresetPassword(Mockito.anyString(),Mockito.any())).thenReturn("Password changed successfully");
-        Assertions.assertEquals(202,controller.resetPassword("RM",userObj).getStatusCodeValue());
+        Assertions.assertEquals(202,controller.resetPassword("TestId",userObj).getStatusCodeValue());
     }
 
     @Test
     void getAllUserTest(){
         List<UserProfile> listUser=new ArrayList<>();
         UserProfile userObj = new UserProfile();
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
 
         listUser.add(userObj);
         when(userImpl.getAllUsers()).thenReturn(listUser);
@@ -80,9 +82,9 @@ class TweetControllerTest {
     @Test
     void postCommentsTest(){
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         when(tweetImpl.addPost(Mockito.anyString(),Mockito.any())).thenReturn("posted");
-        Assertions.assertEquals(200,controller.postComments("RM",tweetobj).getStatusCodeValue());
+        Assertions.assertEquals(200,controller.postComments("TestId",tweetobj).getStatusCodeValue());
     }
 
     @Test
@@ -90,7 +92,7 @@ class TweetControllerTest {
         List<Tweet> listTweet=new ArrayList<>();
 
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         listTweet.add(tweetobj);
         when(tweetImpl.getTweets()).thenReturn(listTweet);
         Assertions.assertEquals(200,controller.getAllTweets().getStatusCodeValue());
@@ -99,9 +101,9 @@ class TweetControllerTest {
     @Test
     void updateTweetTest(){
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         when(tweetImpl.modifyTweet(Mockito.anyString(),Mockito.anyInt(),Mockito.any())).thenReturn(tweetobj);
-        Assertions.assertEquals(200,controller.updateTweet("RM",1,tweetobj).getStatusCodeValue());
+        Assertions.assertEquals(200,controller.updateTweet("TestId",1,tweetobj).getStatusCodeValue());
     }
 
     @Test
@@ -109,7 +111,7 @@ class TweetControllerTest {
         List<Tweet> listTweet=new ArrayList<>();
 
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         listTweet.add(tweetobj);
         when(tweetImpl.getTweetByName(Mockito.any())).thenReturn(listTweet);
         Assertions.assertEquals(200,controller.getAllTweet(tweetobj).getStatusCodeValue());
@@ -118,9 +120,9 @@ class TweetControllerTest {
     @Test
     void searchByUserNameTest(){
         List<String> listUser=new ArrayList<>();
-        listUser.add("RM");
+        listUser.add("TestId");
         UserProfile userObj = new UserProfile();
-        userObj.setLoginid("RM");
+        userObj.setLoginid("TestId");
         when(userImpl.userNameSearch(Mockito.any())).thenReturn(listUser);
         Assertions.assertEquals(200,controller.searchByUserName(userObj).getStatusCodeValue());
     }
@@ -128,25 +130,25 @@ class TweetControllerTest {
     @Test
     void deleteTweetTest(){
         when(tweetImpl.removeTweet(Mockito.anyString(),Mockito.anyInt())).thenReturn( "Tweet deleted!!...");
-        Assertions.assertEquals(200,controller.deleteingTweet("RM",1).getStatusCodeValue());
+        Assertions.assertEquals(200,controller.deleteingTweet("TestId",1).getStatusCodeValue());
     }
 
     @Test
     void addlikeTest(){
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         when(tweetImpl.tweetLike(Mockito.anyString(),Mockito.anyInt())).thenReturn(tweetobj);
-        Assertions.assertEquals(200,controller.addlike("RM",1).getStatusCodeValue());
+        Assertions.assertEquals(200,controller.addlike("TestId",1).getStatusCodeValue());
     }
 
     @Test
     void replyingTweetTest() throws JsonProcessingException {
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
-        String str="{ \"replies\" :\"you know WWH\"} ";
+        tweetobj.setTweets("Fun Starts");
+        String str="{ \"replies\" :\"Let's Start\"} ";
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(str);
         when(tweetImpl.addingReply(Mockito.anyString(),Mockito.anyInt(),Mockito.any())).thenReturn(tweetobj);
-        Assertions.assertEquals(200,controller.replyingTweet("RM",1,jsonNode).getStatusCodeValue());
+        Assertions.assertEquals(200,controller.replyingTweet("TestId",1,jsonNode).getStatusCodeValue());
     }
 }

@@ -60,10 +60,10 @@ public class AuthControllerTest {
      */
     @Test
     void authenticateTokenTest() throws JsonProcessingException {
-        String str="{ \"login_id\" :\"WWH\",\"password\" :\"WWH\"} ";
+        String str="{ \"login_id\" :\"TestId\",\"password\" :\"TestPwd\"} ";
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(str);
-        when(userService.loadUserByUsername(Mockito.anyString())).thenReturn( new User("WWH","WWH",new ArrayList<>()));
+        when(userService.loadUserByUsername(Mockito.anyString())).thenReturn( new User("TestId","TestPwd",new ArrayList<>()));
         when(jwtUtil.generateToken(Mockito.any())).thenReturn("token");
         Assertions.assertEquals(200,authController.authenticateToken(jsonNode).getStatusCodeValue());
     }

@@ -19,6 +19,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import java.util.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -43,42 +44,42 @@ import java.util.*;
      void addPostTest(){
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.of(userObj));
 
-        String str=tweetService.addPost("RM",tweetobj);
+        String str=tweetService.addPost("TestId",tweetobj);
         Assertions.assertEquals("I'm rap monster(posted)",str) ;
     }
 
     @Test
      void addPostNotFoundTest() {
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.empty());
-        Assertions.assertThrows(UserNotFoundException.class,()->tweetService.addPost("RM",tweetobj));
+        Assertions.assertThrows(UserNotFoundException.class,()->tweetService.addPost("TestId",tweetobj));
     }
     @Test
      void getAllTweetsTest(){
         List<Tweet> listTweet=new ArrayList<>();
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         listTweet.add(tweetobj);
         Mockito.when(tweetRepo.findAll()).thenReturn(listTweet);
         Assertions.assertEquals(1,tweetService.getTweets().size());
@@ -88,21 +89,21 @@ import java.util.*;
      void modifyTweetTest(){
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         tweetobj.setTweetId(1);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.of(userObj));
         Mockito.when(tweetRepo.findById(Mockito.anyInt())).thenReturn(Optional.of(tweetobj));
         Tweet modifedTweet=new Tweet();
         modifedTweet.setTweets("I'm Leader");
-        Tweet expected=tweetService.modifyTweet("RM",1,modifedTweet);
+        Tweet expected=tweetService.modifyTweet("TestId",1,modifedTweet);
         Assertions.assertEquals(expected.getTweets(),modifedTweet.getTweets());
     }
 
@@ -110,10 +111,10 @@ import java.util.*;
      void modifyTweetUserNotFoundTest(){
         UserProfile userObj = new UserProfile();
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         tweetobj.setTweetId(1);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.empty());
-        Assertions.assertThrows(UserNotFoundException.class,()->tweetService.modifyTweet("RM",1,tweetobj));
+        Assertions.assertThrows(UserNotFoundException.class,()->tweetService.modifyTweet("TestId",1,tweetobj));
 
     }
 
@@ -121,19 +122,19 @@ import java.util.*;
      void modifyTweetTweetIDExceptionTest(){
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         tweetobj.setTweetId(1);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.of(userObj));
         Mockito.when(tweetRepo.findById(Mockito.anyInt())).thenReturn(Optional.empty());
-        Assertions.assertThrows(TweetNotFoundException.class,()->tweetService.modifyTweet("RM",1,tweetobj));
+        Assertions.assertThrows(TweetNotFoundException.class,()->tweetService.modifyTweet("TestId",1,tweetobj));
     }
 
     @Test
@@ -141,16 +142,16 @@ import java.util.*;
         List<Tweet> listTweet=new ArrayList<>();
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
-        tweetobj.setUserName("RM");
+        tweetobj.setTweets("Fun Starts");
+        tweetobj.setUserName("TestId");
         listTweet.add(tweetobj);
         Mockito.when(tweetRepo.findByuserName(Mockito.anyString())).thenReturn(listTweet);
         Assertions.assertEquals(1,tweetService.getTweetByName(tweetobj).size());
@@ -162,8 +163,8 @@ import java.util.*;
     void getTweetNameUserNotFoundExceptionTest(){
         List<Tweet> listTweet=null;
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
-        tweetobj.setUserName("RM");
+        tweetobj.setTweets("Fun Starts");
+        tweetobj.setUserName("TestId");
         Mockito. when(tweetRepo.findByuserName(Mockito.anyString())).thenReturn(listTweet);
         Assertions.assertThrows(UserNotFoundException.class,()->tweetService.getTweetByName(tweetobj));
     }
@@ -172,161 +173,161 @@ import java.util.*;
         List<Tweet> listTweet=new ArrayList<>();
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
-        tweetobj.setUserName("RM");
+        tweetobj.setTweets("Fun Starts");
+        tweetobj.setUserName("TestId");
         tweetobj.setTweetId(1);
         listTweet.add(tweetobj);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.of(userObj));
         Mockito.when(tweetRepo.findById(Mockito.anyInt())).thenReturn(Optional.of(tweetobj));
-        Assertions.assertEquals("Tweet deleted!!...",tweetService.removeTweet("RM",1));
+        Assertions.assertEquals("Tweet deleted!!...",tweetService.removeTweet("TestId",1));
     }
 
     @Test
     void removeTweetUserNotFoundExceptionTest(){
         UserProfile userObj = new UserProfile();
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         tweetobj.setTweetId(1);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.empty());
-        Assertions.assertThrows(UserNotFoundException.class,()->tweetService.removeTweet("RM",1));
+        Assertions.assertThrows(UserNotFoundException.class,()->tweetService.removeTweet("TestId",1));
     }
 
     @Test
      void removeTweetTweetIdNotFoundExceptionTest(){
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         tweetobj.setTweetId(1);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.of(userObj));
         Mockito.when(tweetRepo.findById(Mockito.anyInt())).thenReturn(Optional.empty());
-        Assertions.assertThrows(TweetNotFoundException.class,()->tweetService.removeTweet("RM",1));
+        Assertions.assertThrows(TweetNotFoundException.class,()->tweetService.removeTweet("TestId",1));
     }
 
     @Test
     void addingReplyTest() throws Exception {
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         tweetobj.setTweetId(1);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.of(userObj));
         Mockito.when(tweetRepo.findById(Mockito.anyInt())).thenReturn(Optional.of(tweetobj));
- String str="{ \"replies\" :\"you know WWH\",\"tagged\" :\"WWH\"} ";
+        String str="{ \"replies\" :\"Let's Start\",\"tagged\" :\"TAG\"} ";
         ObjectMapper objectMapper = new ObjectMapper();
 
         JsonNode jsonNode = objectMapper.readTree(str);
-        Assertions.assertEquals(tweetService.addingReply("RM",1, jsonNode).getTweetId()
+        Assertions.assertEquals(tweetService.addingReply("TestId",1, jsonNode).getTweetId()
                 ,tweetobj.getTweetId());
     }
     @Test
      void addingReplyUserNotFoundExceptionTest() throws RuntimeException,JsonProcessingException {
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.empty());
-        String str="{ \"replies\" :\"you know WWH\",\"tagged\" :\"WWH\"} ";
+        String str="{ \"replies\" :\"Let's Start\",\"tagged\" :\"TAG\"} ";
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(str);
-        Assertions.assertThrows(UserNotFoundException.class,()->tweetService.addingReply("RM",1, jsonNode));
+        Assertions.assertThrows(UserNotFoundException.class,()->tweetService.addingReply("TestId",1, jsonNode));
     }
 
     @Test
      void addingReplyTweetNotFoundExceptionTest() throws RuntimeException, JsonProcessingException {
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         tweetobj.setTweetId(1);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.of(userObj));
         Mockito.when(tweetRepo.findById(Mockito.anyInt())).thenReturn(Optional.empty());
-        String str="{ \"replies\" :\"you know WWH\",\"tagged\" :\"WWH\"} ";
+        String str="{ \"replies\" :\"Let's Start\",\"tagged\" :\"TAG\"} ";
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(str);
-        Assertions.assertThrows(TweetNotFoundException.class,()->tweetService.addingReply("RM",1, jsonNode));
+        Assertions.assertThrows(TweetNotFoundException.class,()->tweetService.addingReply("TestId",1, jsonNode));
     }
 
     @Test
     void tweetLikeTest(){
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         tweetobj.setTweetId(1);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.of(userObj));
         Mockito.when(tweetRepo.findById(Mockito.anyInt())).thenReturn(Optional.of(tweetobj));
-        Assertions.assertEquals(1,tweetService.tweetLike("RM",1).getLikedby().size());
+        Assertions.assertEquals(1,tweetService.tweetLike("TestId",1).getLikedby().size());
     }
 
     @Test
     void tweetLikeUserNotFoundTest(){
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.empty());
-        Assertions.assertThrows(UserNotFoundException.class,()->tweetService.tweetLike("RM",1));
+        Assertions.assertThrows(UserNotFoundException.class,()->tweetService.tweetLike("TestId",1));
     }
 
     @Test
     void tweetLikeTweetNotFoundTest(){
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         tweetobj.setTweetId(1);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.of(userObj));
         Mockito.when(tweetRepo.findById(Mockito.anyInt())).thenReturn(Optional.empty());
-        Assertions.assertThrows(TweetNotFoundException.class,()->tweetService.tweetLike("RM",1));
+        Assertions.assertThrows(TweetNotFoundException.class,()->tweetService.tweetLike("TestId",1));
     }
 
     @Test
     void tweetMultipleLikeTest(){
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
         List<Like> likeData=new LinkedList<>();
 
@@ -335,61 +336,61 @@ import java.util.*;
         mapObj.put("JIN",true);
         likeobj.setUserliked(mapObj);
         likeData.add(likeobj);
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         tweetobj.setTweetId(1);
         tweetobj.setLikedby(likeData);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.of(userObj));
         Mockito.when(tweetRepo.findById(Mockito.anyInt())).thenReturn(Optional.of(tweetobj));
-        Assertions.assertEquals(2,tweetService.tweetLike("RM",1).getLikedby().size());
+        Assertions.assertEquals(2,tweetService.tweetLike("TestId",1).getLikedby().size());
     }
 
     @Test
     void tweetDisLikeTest(){
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
         List<Like> likeData=new LinkedList<>();
 
         Like likeobj=new Like();
         Map<String,Boolean> mapObj=new HashMap<>();
-        mapObj.put("RM",true);
+        mapObj.put("TestId",true);
         likeobj.setUserliked(mapObj);
         likeData.add(likeobj);
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         tweetobj.setTweetId(1);
         tweetobj.setLikedby(likeData);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.of(userObj));
         Mockito.when(tweetRepo.findById(Mockito.anyInt())).thenReturn(Optional.of(tweetobj));
-        Assertions.assertEquals(0,tweetService.tweetLike("RM",1).getLikedby().size());
+        Assertions.assertEquals(0,tweetService.tweetLike("TestId",1).getLikedby().size());
     }
 
     @Test
     void addingReplywithoutTaggingTest() throws Exception {
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Tweet tweetobj=new Tweet();
-        tweetobj.setTweets("I'm rap monster");
+        tweetobj.setTweets("Fun Starts");
         tweetobj.setTweetId(1);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.of(userObj));
         Mockito.when(tweetRepo.findById(Mockito.anyInt())).thenReturn(Optional.of(tweetobj));
-        String str="{ \"replies\" :\"you know WWH\"} ";
+        String str="{ \"replies\" :\"Let's Start\"} ";
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(str);
-        Assertions.assertEquals(tweetService.addingReply("RM",1, jsonNode).getTweetId()
+        Assertions.assertEquals(tweetService.addingReply("TestId",1, jsonNode).getTweetId()
                 ,tweetobj.getTweetId());
     }
 }

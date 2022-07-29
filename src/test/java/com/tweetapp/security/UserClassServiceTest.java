@@ -32,15 +32,15 @@ import java.util.Optional;
     @Test
     void loadUserByUsernameTest(){
         UserProfile userObj = new UserProfile();
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(java.util.Optional.of(userObj));
-        Assertions.assertEquals(userObj.getLoginid(),userClassService.loadUserByUsername("RM").getUsername());
+        Assertions.assertEquals(userObj.getLoginid(),userClassService.loadUserByUsername("TestId").getUsername());
     }
 
     @Test
@@ -48,6 +48,6 @@ import java.util.Optional;
         UserProfile userObj = new UserProfile();
 
         Mockito.when(userRepo.findById(Mockito.anyString())).thenReturn(Optional.of(userObj));
-        Assertions.assertThrows(UserNotFoundException.class,()->userClassService.loadUserByUsername("RM"));
+        Assertions.assertThrows(UserNotFoundException.class,()->userClassService.loadUserByUsername("TestId"));
     }
 }

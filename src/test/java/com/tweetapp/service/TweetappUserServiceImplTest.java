@@ -16,6 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -45,15 +46,15 @@ import java.util.Optional;
     void registerUserTest(){
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
         Mockito.when(config.passwordEncoder())
                 .thenReturn(passwordEncoder());
-        userObj.setContactnumber(1234567890l);
+        userObj.setContactnumber(9444770238L);
         userRepo1.save(userObj);
         String str=userImpl.registerUser(userObj);
         Assertions.assertEquals(" Successfully Created",str);
@@ -64,16 +65,16 @@ import java.util.Optional;
      void toresetPasswordTest(){
         UserProfile userObj = new UserProfile();
 
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Mockito.when(userRepo1.findById(Mockito.anyString())).thenReturn(java.util.Optional.of(userObj));
         userRepo1.save(userObj);
-        String str=userImpl.toresetPassword("RM",userObj);
+        String str=userImpl.toresetPassword("TestId",userObj);
         Assertions.assertEquals("Password changed successfully",str);
     }
 
@@ -89,13 +90,13 @@ import java.util.Optional;
      void toGetAllUserTest(){
         List<UserProfile> listUser=new ArrayList<>();
         UserProfile userObj = new UserProfile();
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
 
         listUser.add(userObj);
         Mockito.when(userRepo1.findAll()).thenReturn(listUser);
@@ -106,13 +107,13 @@ import java.util.Optional;
     @Test
     void userNameSearchTest(){
         UserProfile userObj = new UserProfile();
-        userObj.setLoginid("RM");
-        userObj.setFristname("Kim");
-        userObj.setLastname("Namjoon");
-        userObj.setEmail("rm@bts.com");
-        userObj.setPassword("army");
-        userObj.setConfirmpassword("army");
-        userObj.setContactnumber(1234567890l);
+        userObj.setLoginid("TestId");
+        userObj.setFristname("TestFirst");
+        userObj.setLastname("TestLast");
+        userObj.setEmail("testEmail@test.com");
+        userObj.setPassword("TestPwd");
+        userObj.setConfirmpassword("TestPwd");
+        userObj.setContactnumber(9444770238L);
         Mockito.when(userRepo1.getUsers(Mockito.anyString())).thenReturn(List.of(userObj));
         List<String> users=userImpl.userNameSearch(userObj);
         Assertions.assertEquals(1,users.size());
@@ -122,7 +123,7 @@ import java.util.Optional;
      void userNameSearchNotFoundTest(){
         List<UserProfile> userList= null;
         UserProfile userObj = new UserProfile();
-        userObj.setLoginid("RM");
+        userObj.setLoginid("TestId");
         Mockito.when(userRepo1.getUsers(Mockito.anyString())).thenReturn(userList);
         Assertions.assertThrows(UserNotFoundException.class,()->userImpl.userNameSearch(userObj));
     }
