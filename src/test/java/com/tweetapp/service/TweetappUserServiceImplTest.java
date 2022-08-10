@@ -47,7 +47,7 @@ import java.util.Optional;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -66,7 +66,7 @@ import java.util.Optional;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -91,7 +91,7 @@ import java.util.Optional;
         List<UserProfile> listUser=new ArrayList<>();
         UserProfile userObj = new UserProfile();
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -108,7 +108,7 @@ import java.util.Optional;
     void userNameSearchTest(){
         UserProfile userObj = new UserProfile();
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");

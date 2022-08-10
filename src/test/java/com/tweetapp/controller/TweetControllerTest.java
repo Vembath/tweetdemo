@@ -44,7 +44,7 @@ class TweetControllerTest {
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -67,7 +67,7 @@ class TweetControllerTest {
         List<UserProfile> listUser=new ArrayList<>();
         UserProfile userObj = new UserProfile();
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");

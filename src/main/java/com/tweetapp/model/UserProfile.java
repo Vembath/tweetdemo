@@ -1,10 +1,12 @@
 package com.tweetapp.model;
 
 import com.tweetapp.validation.PasswordValidationAnnotation;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -22,7 +24,7 @@ public class UserProfile {
     private String loginid;
 
     @NotBlank(message ="Firstname cannot be empty")
-    private String fristname;
+    private String firstname;
     @NotBlank(message ="Lastname cannot be empty")
     private String lastname;
 
@@ -46,12 +48,12 @@ public class UserProfile {
         this.loginid = loginid;
     }
 
-    public String getFristname() {
-        return fristname;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFristname(String fristname) {
-        this.fristname = fristname;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getLastname() {

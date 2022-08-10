@@ -33,7 +33,7 @@ import java.util.Optional;
     void loadUserByUsernameTest(){
         UserProfile userObj = new UserProfile();
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");

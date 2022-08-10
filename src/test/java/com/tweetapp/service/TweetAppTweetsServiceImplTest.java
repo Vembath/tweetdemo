@@ -45,7 +45,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -72,7 +72,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -90,7 +90,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -123,7 +123,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -143,7 +143,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -174,7 +174,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -205,7 +205,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -224,7 +224,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -256,7 +256,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -278,7 +278,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -303,7 +303,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -322,7 +322,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -349,7 +349,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
@@ -376,7 +376,7 @@ import java.util.*;
         UserProfile userObj = new UserProfile();
 
         userObj.setLoginid("TestId");
-        userObj.setFristname("TestFirst");
+        userObj.setFirstname("TestFirst");
         userObj.setLastname("TestLast");
         userObj.setEmail("testEmail@test.com");
         userObj.setPassword("TestPwd");
